@@ -1,4 +1,4 @@
-<h1 align="center">Telegram Forward Message (Telethon + asyncio)</h1>
+<h1 align="center">📨 Telegram Forward Message (Telethon + asyncio)</h1>
 <p align="center">
   Forward messages automatically from one source group/channel to multiple target groups with random delays, loop interval, and multi-account support.
 </p>
@@ -13,25 +13,25 @@
 
 ---
 
-## Features
-- **Multi-account** login (each phone number has its own session)
-- **Auto loop** to check new messages on a configurable interval
-- **Multi-target**: forward to many groups/channels at once
-- **Flexible source**: use a fixed `message_id` **or** always forward the latest message
-- **Human-like random delay** per forward (`min_delay``max_delay`)
-- **Access validation** for source and target groups before sending
-- **Simple JSON configuration** (`configuration.json`)
+## ✨ Features
+- 🔐 **Multi-account** login (each phone number has its own session)
+- 🔁 **Auto loop** to check new messages on a configurable interval
+- 🎯 **Multi-target**: forward to many groups/channels at once
+- 🧲 **Flexible source**: use a fixed `message_id` **or** always forward the latest message
+- ⏱️ **Human-like random delay** per forward (`min_delay`–`max_delay`)
+- ✅ **Access validation** for source and target groups before sending
+- 📝 **Simple JSON configuration** (`configuration.json`)
 
 ---
 
-## Requirements
+## 🔧 Requirements
 - Python **3.10+**
 - Telegram account (2FA supported)
-- `api_id` and `api_hash` from <https://my.telegram.org>  *API Development Tools*
+- `api_id` and `api_hash` from <https://my.telegram.org> → *API Development Tools*
 
 ---
 
-## Quick Start
+## 🚀 Quick Start
 
 ```bash
 git clone https://github.com/Nadir-N3/Telegram-forward-message.git
@@ -50,7 +50,7 @@ pip install telethon
 
 ---
 
-## Create Sessions & Config (Mode 1)
+## 🔑 Create Sessions & Config (Mode 1)
 Run the script and choose **1** to create sessions and build `configuration.json` interactively:
 
 ```bash
@@ -59,7 +59,7 @@ python main.py
 ```
 
 The wizard will ask for:
-- Number of accounts for each: `phone`, `api_id`, `api_hash`
+- Number of accounts → for each: `phone`, `api_id`, `api_hash`
 - **Source group** (`-100...` id or `@username`)
 - **Message mode**:
   - A fixed `message_id` (forward the same message every loop), **or**
@@ -69,13 +69,13 @@ The wizard will ask for:
 - **Loop interval** for checking new messages
 
 It will:
-- Log you in (OTP 2FA if enabled)
+- Log you in (OTP → 2FA if enabled)
 - Save per-account sessions (e.g., `session_628XXXXXX.session`)
 - Write **`configuration.json`**
 
 ---
 
-## Run the Bot (Mode 2)
+## ▶️ Run the Bot (Mode 2)
 After `configuration.json` exists:
 
 ```bash
@@ -92,7 +92,7 @@ The bot will:
 
 ---
 
-## Example `configuration.json`
+## 🧰 Example `configuration.json`
 
 ```json
 {
@@ -133,32 +133,32 @@ The bot will:
 ```
 
 ### Field Notes
-- `accounts[]` list of accounts (each with its own `.session`)
-- `source_group` source group/channel id or `@username`
-- `message_id` number for a specific message; `null` to always use the latest
-- `use_fixed_message_id` optional, defaults to `false`
-- `groups[]` target groups/channels (ids or `@username`)
-- `delay.min_delay` / `delay.max_delay` random delay in seconds between forwards
-- `loop_interval` seconds to wait before checking for a new message (recommended 60)
+- `accounts[]` — list of accounts (each with its own `.session`)
+- `source_group` — source group/channel id or `@username`
+- `message_id` — number for a specific message; `null` to always use the latest
+- `use_fixed_message_id` — optional, defaults to `false`
+- `groups[]` — target groups/channels (ids or `@username`)
+- `delay.min_delay` / `delay.max_delay` — random delay in seconds between forwards
+- `loop_interval` — seconds to wait before checking for a new message (recommended ≥ 60)
 
 ---
 
-## Troubleshooting
-- **`PhoneCodeInvalidError`** OTP code is wrong/expired; request a new one.  
-- **`SessionPasswordNeededError`** Your account uses 2FA; enter your 2FA password.  
-- **`ChannelPrivateError` / `ChatAdminRequiredError`** The account a member or lacks permission in that group.  
-- **No new message** Ensure a new message was posted (newer than the last forwarded id).  
-- **Flood/Rate limits** Increase delays, reduce number of targets, or switch accounts.  
-- **Windows encoding issues** Use a UTF-8 terminal (e.g., new Windows Terminal/PowerShell).
+## 🧯 Troubleshooting
+- **`PhoneCodeInvalidError`** → OTP code is wrong/expired; request a new one.  
+- **`SessionPasswordNeededError`** → Your account uses 2FA; enter your 2FA password.  
+- **`ChannelPrivateError` / `ChatAdminRequiredError`** → The account isn’t a member or lacks permission in that group.  
+- **No new message** → Ensure a new message was posted (newer than the last forwarded id).  
+- **Flood/Rate limits** → Increase delays, reduce number of targets, or switch accounts.  
+- **Windows encoding issues** → Use a UTF-8 terminal (e.g., new Windows Terminal/PowerShell).
 
 ---
 
-## Usage & Policy
-- Respect **Telegram Terms of Service**.
+## ⚖️ Usage & Policy
+- Respect **Telegram’s Terms of Service**.
 - Avoid spam; pick reasonable delay/interval values.
 - Only forward content you have permission to share.
 
 ---
 
-## License
+## 📝 License
 Licensed under **MIT**. See [LICENSE](LICENSE) for details.
